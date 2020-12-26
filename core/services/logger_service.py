@@ -14,6 +14,9 @@ class LoggerService:
 
     def get_average_request_time(self):
         """Returns average request execution time"""
+        if self._requests_count == 0:
+            return 0
+
         return self._full_request_time / self._requests_count
 
 
