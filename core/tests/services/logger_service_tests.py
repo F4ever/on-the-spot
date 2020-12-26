@@ -1,11 +1,10 @@
 import random
+from unittest import TestCase
 
-from django.test import TestCase
-
-from services.logger.logger_service import logger
+from core.services.logger_service import logger
 
 
-class LoggerServiceTestCase(TestCase):
+class LoggerServiceTest(TestCase):
     REQUEST_AVG_TIME = 0.200
 
     def setUp(self):

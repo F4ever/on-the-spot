@@ -6,13 +6,15 @@ class Logger:
 
     def log(self, request_time: float):
         """Log request average time"""
-        pass
+        self._requests_count += 1
+        self._full_request_time += request_time
 
     def get_requests_count(self):
-        return
+        return self._requests_count
 
     def get_average_request_time(self):
-        pass
+        """Returns average request execution time"""
+        return self._full_request_time / self._requests_count
 
 
 logger = Logger()
