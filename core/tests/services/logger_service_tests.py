@@ -33,3 +33,8 @@ class LoggerServiceTest(TestCase):
             logger_service.log_request_time(request_time)
 
         self.assertEqual(full_time / 100, logger_service.get_average_request_time())
+
+    def test_zero_division_error(self):
+        avg_time = logger_service.get_average_request_time()
+
+        self.assertEqual(0, avg_time)
