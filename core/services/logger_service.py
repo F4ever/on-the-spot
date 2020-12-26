@@ -4,7 +4,7 @@ class Logger:
     _requests_count = 0
     _full_request_time = 0
 
-    def log(self, request_time: float):
+    def log_request_time(self, request_time: float):
         """Log request average time"""
         self._requests_count += 1
         self._full_request_time += request_time
