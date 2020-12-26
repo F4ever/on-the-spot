@@ -13,7 +13,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
-INSTALLED_APPS = ['core']
+INSTALLED_APPS = [
+    'core',
+    'rest_framework',
+]
 
 MIDDLEWARE = [
     'onthespot.middleware.logger.LoggerMiddleware',
