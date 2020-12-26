@@ -16,6 +16,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = ['core']
 
 MIDDLEWARE = [
+    'onthespot.middleware.logger.LoggerMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

@@ -1,4 +1,4 @@
-class Logger:
+class LoggerService:
     """Logger that logs count of requests, average response time"""
 
     _requests_count = 0
@@ -17,4 +17,4 @@ class Logger:
         return self._full_request_time / self._requests_count
 
 
-logger = Logger()
+logger_service = LoggerService()
