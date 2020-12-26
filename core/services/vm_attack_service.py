@@ -1,3 +1,10 @@
+from typing import List
+
+
+class VmAttackServiceException(Exception):
+    pass
+
+
 class VmAttackService:
     """
         Service that shows vulnerable virtual machines.
@@ -8,11 +15,11 @@ class VmAttackService:
         """Setup clients vm and firewall rules. Saves and create a graph for fast calculations"""
         pass
 
-    def get_all_vulnerable_vm(self, vm_id: str):
+    def get_all_vulnerable_vm(self, vm_id: str) -> List[str]:
         """vm_id - virtual machine id that will be used as entry point for attacker"""
         pass
 
-    def get_vm_count(self):
+    def get_vm_count(self) -> int:
         pass
 
 
