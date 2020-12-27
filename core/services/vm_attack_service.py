@@ -14,8 +14,7 @@ class VmAttackServiceException(Exception):
 
 class VmAttackService:
     """
-        Service that shows vulnerable virtual machines.
-        Lets try create graph and traversal it.
+        Service that shows vulnerable virtual machines in customers env.
     """
     _validated = False
 

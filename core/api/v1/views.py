@@ -26,6 +26,6 @@ def attack_view(request):
     try:
         vulnerable_vms = vm_attack_service.get_all_vulnerable_vm_id(vm_id)
     except VmAttackServiceException as error:
-        return JsonResponse(data={'error': error}, status=400)
+        return JsonResponse(data={'error': str(error)}, status=400)
 
     return JsonResponse(data=vulnerable_vms, safe=False)

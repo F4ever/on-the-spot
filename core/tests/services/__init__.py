@@ -1,0 +1,2 @@
+from .logger_service_test import LoggerServiceTest
+from .vm_attack_service_test import VmAttackServiceTest
