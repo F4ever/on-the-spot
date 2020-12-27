@@ -8,7 +8,7 @@ from core.services.vm_attack_service import vm_attack_service, VmAttackServiceEx
 @require_GET
 def stats_view(request):
     response_data = {
-        'vm_count': vm_attack_service.get_vm_count(),
+        'vm_count': vm_attack_service.vm_count,
         'request_count': logger_service.get_requests_count(),
         'average_request_time': logger_service.get_average_request_time(),
     }
@@ -24,7 +24,7 @@ def attack_view(request):
         return JsonResponse(data={'error': 'Fill "vm_id" param'}, status=400)
 
     try:
-        vulnerable_vms = vm_attack_service.get_all_vulnerable_vm(vm_id)
+        vulnerable_vms = vm_attack_service.get_all_vulnerable_vm_id(vm_id)
     except VmAttackServiceException as error:
         return JsonResponse(data={'error': error}, status=400)
 
