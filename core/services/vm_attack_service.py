@@ -123,7 +123,7 @@ class VmAttackService:
         attacker_vm_index = self._get_vm_index(vm_id)
 
         # Go through the graph
-        indexes = self._get_all_accessible_vertex_from_index(self, attacker_vm_index)
+        indexes = self._get_all_accessible_vertex_from_index(attacker_vm_index)
 
         # Return only vm ids
         return [self._vms[index]['vm_id'] for index in indexes]
