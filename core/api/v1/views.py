@@ -28,4 +28,4 @@ def attack_view(request):
     except VmAttackServiceException as error:
         return JsonResponse(data={'error': error}, status=400)
 
-    return JsonResponse(data=vulnerable_vms)
+    return JsonResponse(data=vulnerable_vms, safe=False)
