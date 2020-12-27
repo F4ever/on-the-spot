@@ -49,6 +49,7 @@ class VmAttackService:
             :raises VmAttackServiceSetUpException if setup was incorrect
         """
         # Validate data
+        self._validated = False
         self._validate_data(vms, fw_rules)
 
         # Store data
@@ -93,6 +94,8 @@ class VmAttackService:
 
     def _generate_tag_owners(self):
         """Generate dict where key is Tag name, value is list of machines that has this tag"""
+        self._tag_owners = defaultdict(list)
+
         for index, vm in enumerate(self._vms):
             for tag in vm['tags']:
                 self._tag_owners[tag].append(index)
@@ -119,6 +122,10 @@ class VmAttackService:
 
     def get_all_vulnerable_vm_id(self, vm_id: str) -> List[str]:
         """vm_id - virtual machine id that will be used as entry point for attacker."""
+        if not self._validated:
+            raise VmAttackServiceSetUpException('First you should call "set_cloud_environment" successfully')
+
+        # Find this vm index
         attacker_vm_index = self._get_vm_index(vm_id)
 
         # Go through the graph
@@ -157,6 +164,9 @@ class VmAttackService:
 
     @property
     def vm_count(self) -> int:
+        if not self._validated:
+            raise VmAttackServiceSetUpException('First you should call "set_cloud_environment" successfully')
+
         return self._vm_count
 
 
